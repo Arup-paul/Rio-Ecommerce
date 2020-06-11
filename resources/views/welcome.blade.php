@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel 6
+                    Rio Ecommerce
                 </div>
 
                 <div class="links">
