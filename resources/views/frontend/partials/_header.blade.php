@@ -3,11 +3,17 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
-            <h4 class="text-white">About</h4>
-            <p class="text-muted">Rio Ecommerce is a ecommerce platfrom developed us laravel</p>
+            <h4 class="text-white">Categories</h4>
+            <ul class="list-unstyled">   
+                  @foreach($categories as $category)     
+            <li>
+                <a href="{{$category->slug}}" class="text-white">{{$category->name}}</a>
+            </li>
+                @endforeach
+            </ul>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
-            <h4 class="text-white">Contact</h4>
+            <h4 class="text-white">Menu</h4>
             <ul class="list-unstyled">
                 @guest
                 <li><a href="#" class="text-white">Create an accout</a></li>
