@@ -1,3 +1,7 @@
+@extends('frontend.layouts.master')
+
+
+@section('main')
 <section class="jumbotron text-center">
     <div class="container">
       <h1>Album example</h1>
@@ -153,3 +157,6 @@
       </div>
     </div>
   </div>
+
+
+  @endsection
