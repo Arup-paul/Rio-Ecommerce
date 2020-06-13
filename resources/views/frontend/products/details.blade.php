@@ -4,6 +4,7 @@
 @section('main')
 
 <div class="container">
+    <br>
 <p class="text-center">{{$product->title}}</p>
     <hr>
 
@@ -23,7 +24,14 @@
 
                      <p class="price-detail-wrap">
                          <span class="num">
-                            {{$product->price}}
+                            <strong class="text-muted">
+                                @if($product->sale_price !== NULL && $product->sale_price > 0)
+                                  <strike>BDT {{$product->price}}</strike>  BDT {{$product->sale_price}}
+                                @else
+                                BDT {{$product->price}}
+                                @endif
+            
+                            </strong>
                          </span>
                      </p>
 
@@ -33,7 +41,11 @@
                      </dl>
                      <hr>
 
-                     <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"><i class="fas fa-shopping-cart"></i>Add To Cart</a>
+                    <form action="{{route('cart.add')}}" method="POST">
+                    @csrf
+                <input type="hidden" name="product_id" value="{{$product->id}}">
+                  <button type="submit" class="btn btn-lg btn-outline-secondary">Add to Cart</button>
+                </form>
                 </article>
 
             </aside>
