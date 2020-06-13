@@ -15,12 +15,12 @@ class ProductTableSeeder extends Seeder
     {
 
 
-        factory(Product::class,10)->create();
+        factory(Product::class,2)->create();
 
         $products = Product::select('id')->get();
 
         foreach($products as $product){
-            $product->addMediaFromUrl("https://unsplash.com/photos/m_HRfLhgABo")
+            $product->addMediaFromUrl("https://www.bitdegree.org/tutorials/wp-content/uploads/2018/08/what-is-a-web-developer.jpg")
             ->toMediaCollection('products');
         }
     }
