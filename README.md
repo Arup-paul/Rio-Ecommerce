@@ -5,6 +5,9 @@
 Rio Ecommerce is an open source ecommerce platform mangement  using Laravel 
 
 ## pacakages  Used
+- laravel debugger
+- laravel ide helper
+- laravel media library
 
 ## Installation Instruction
 
