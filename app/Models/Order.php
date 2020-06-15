@@ -23,6 +23,6 @@ class Order extends Model
     public function products():\Illuminate\Database\Eloquent\Relations\HasMany
     {
 
-        return $this->hasMany(Order::class);
+        return $this->hasMany(OrderProduct::class);
     }
 }

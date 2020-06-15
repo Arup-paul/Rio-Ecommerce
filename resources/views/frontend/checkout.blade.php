@@ -17,9 +17,9 @@
     @endguest
 
 </div>
- 
+
  <div class="container">
- 
+
   <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -36,7 +36,7 @@
           <span class="text-muted">{{number_format($product['total_price'],2)}}</span>
         </li>
         @endforeach
-       
+
         <li class="list-group-item d-flex justify-content-between">
           <span>Total (BDT)</span>
         <strong>{{number_format($total,2)}}</strong>
@@ -54,19 +54,20 @@
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
-      <form class="needs-validation" novalidate>
-       
+      @include('frontend.partials._message')
+    <form action="{{route('order')}}" method="post" class="needs-validation" novalidate>
+       @csrf
 
         <div class="mb-3">
           <label for="username">Customer Name</label>
         <input type="text" class="form-control" name="customer_name" value="{{auth()->user()->name}}">
           </div>
-      
+
 
         <div class="mb-3">
-          <label for="email">Customer Phone Number </label> 
+          <label for="email">Customer Phone Number </label>
           <input type="email" class="form-control" id="email" name="customer_phone_number" value="{{auth()->user()->phone_number}}">
-         
+
         </div>
 
         <div class="mb-3">
@@ -74,35 +75,25 @@
         <textarea name="address" class="form-control" id="" ></textarea>
         </div>
 
-        
 
-        
           <div class=" mb-3">
-            <label for="country">Country</label>
+            <label for="country">City</label>
           <input type="text" name="city" class="form-control" placeholder="city" required>
-          
-          
+
+
           <div class=" mb-3">
             <label for="country">Postal Code</label>
           <input type="text" class="form-control" name="postal_code" placeholder="postal code" required>
-          
-      
-        
+
+
+
         </div>
 
-        <hr class="mb-4">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="same-address">
-          <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-        </div>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id="save-info">
-          <label class="custom-control-label" for="save-info">Save this information for next time</label>
-        </div>
+     
         <hr class="mb-4">
 
-        
-      
+
+
         <hr class="mb-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
       </form>

@@ -28,14 +28,20 @@ Route::group(['namespace' => 'Frontend'], function () {
 
      Route::get('/userRegistration','AuthController@showRegistrationFrom')->name('userRegistration');
     Route::post('/processRegistration','AuthController@processRegistration')->name('processRegistration');
-    
+
     Route::get('/activated/{token}','AuthController@Active')->name('active');
 
     Route::group(['middleware' => 'auth'],function(){
+
+        Route::post('/order','CartController@processOrder')->name('order');
+
+
+
+
         Route::get( '/profile', 'AuthController@profile' )->name( 'profile' );
         Route::get( '/logout', 'AuthController@logout' )->name( 'logout' );
     });
-    
+
 });
 
 
