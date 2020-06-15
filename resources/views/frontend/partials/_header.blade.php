@@ -4,8 +4,8 @@
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
             <h4 class="text-white">Categories</h4>
-            <ul class="list-unstyled">   
-                  @foreach($categories as $category)     
+            <ul class="list-unstyled">
+                  @foreach($categories as $category)
             <li>
                 <a href="{{$category->slug}}" class="text-white">{{$category->name}}</a>
             </li>
@@ -16,13 +16,13 @@
             <h4 class="text-white">Menu</h4>
             <ul class="list-unstyled">
                 @guest
-                <li><a hrgef="#" class="text-white">Create an accout</a></li>
-                <li><a href="#" class="text-white">Login</a></li>
-                @endguest 
+            <li><a href="{{route('userRegistration')}}" class="text-white">Create an accout</a></li>
+                <li><a href="{{route('userLogin')}}" class="text-white">Login</a></li>
+                @endguest
                 @auth
-                <li><a href="#" class="text-white">My Profile</a></li>
-                <li><a href="#" class="text-white">Logout</a></li>
-                @endauth            
+                <li><a href="{{route('profile')}}" class="text-white">My Profile</a></li>
+                <li><a href="{{route('logout')}}" class="text-white">Logout</a></li>
+                @endauth
             <li><a href="{{route('cart.show')}}" class="text-white">Cart</a></li>
             </ul>
           </div>
