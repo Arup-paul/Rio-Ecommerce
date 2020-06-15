@@ -18,6 +18,7 @@
 
 </div>
 
+@auth
  <div class="container">
 
   <div class="row">
@@ -89,7 +90,7 @@
 
         </div>
 
-     
+
         <hr class="mb-4">
 
 
@@ -100,5 +101,6 @@
     </div>
   </div>
 </div>
+@endauth
 
 @endsection

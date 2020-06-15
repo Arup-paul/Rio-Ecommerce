@@ -15,7 +15,7 @@ class ProductTableSeeder extends Seeder
     {
 
 
-        factory(Product::class,2)->create();
+        factory(Product::class,5)->create();
 
         $products = Product::select('id')->get();
 
