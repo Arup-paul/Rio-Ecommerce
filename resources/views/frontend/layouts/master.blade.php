@@ -19,7 +19,7 @@
           <main role="main">
 
             @yield('main')
-            
+
 
           </main>
 
@@ -29,6 +29,7 @@
 
 
         <script src="{{mix('js/all.js')}}"></script>
+        <script src="{{mix('js/app.js')}}"></script>
         @yield('before_body')
 
     </body>

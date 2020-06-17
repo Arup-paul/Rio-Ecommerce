@@ -30,6 +30,8 @@ Route::group( ['namespace' => 'Frontend'], function () {
 
     Route::get( '/activated/{token}', 'AuthController@Active' )->name( 'active' );
 
+    Route::get('/categoryProduct/{id}','ProductController@categoryProduct')->name('categoryProduct');
+
 
     Route::group( ['middleware' => 'auth'], function () {
 
@@ -41,6 +43,14 @@ Route::group( ['namespace' => 'Frontend'], function () {
     } );
 
 } );
+
+
+Route::group( ['namespace' => 'Backend'], function () {
+
+ Route::get( '/backend', 'HomeController@index' )->name( 'backend' );
+
+
+});
 
 //Auth::routes();
 

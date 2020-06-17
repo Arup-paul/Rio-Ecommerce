@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 
 class ProductController extends Controller {
@@ -17,5 +18,15 @@ class ProductController extends Controller {
         }
 
         return view( 'frontend.products.details', $data );
+    }
+
+     public function categoryProduct( $id ) {
+
+        $data = [];
+        $data['products'] = Product::all()->where( 'category_id', $id )->where( 'status', 1 );
+
+
+
+        return view( 'frontend.products.categoryProduct', $data );
     }
 }

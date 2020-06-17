@@ -7,7 +7,7 @@
             <ul class="list-unstyled">
                   @foreach($categories as $category)
             <li>
-                <a href="{{$category->slug}}" class="text-white">{{$category->name}}</a>
+                <a href="{{route('categoryProduct',$category->id)}}" class="text-white">{{$category->name}}</a>
             </li>
                 @endforeach
             </ul>
