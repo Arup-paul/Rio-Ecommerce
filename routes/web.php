@@ -47,9 +47,15 @@ Route::group( ['namespace' => 'Frontend'], function () {
 
 Route::group( ['namespace' => 'Backend'], function () {
 
- Route::get( '/backend', 'HomeController@index' )->name( 'backend' );
 
+ Route::get( '/backend', 'AuthController@index' )->name( 'admin.login' );
+ Route::post( '/adminLogin', 'AuthController@processLogin' )->name( 'admin.processLogin' );
 
+  Route::group( ['middleware' => 'admin'], function () {
+
+Route::get( '/dashboard', 'HomeController@index' )->name( 'backend' );
+Route::get( '/admin/logout', 'AuthController@logout' )->name( 'admin.logout' );
+  });
 });
 
 //Auth::routes();

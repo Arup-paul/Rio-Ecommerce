@@ -1,3 +1,4 @@
+@include('backend.partials._header_file')
 @include('backend.partials._header')
 
 
@@ -13,3 +14,4 @@
 
 
     @include('backend.partials._footer')
+    @include('backend.partials._footer_file')
