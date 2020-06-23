@@ -1,4 +1,4 @@
-
+</head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -24,13 +24,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="hidden-xs">Alexander Pierce</span>
+            <span class="hidden-xs">{{auth()->user()->name}}</span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
                 <img src="#" class="img-circle" alt="">
                 <p>
-                  Alexander Pierce - Web Developer
+                  {{auth()->user()->name}} - {{auth()->user()->name}}
                 </p>
               </li>
 

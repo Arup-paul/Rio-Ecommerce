@@ -21,7 +21,7 @@
 
                 @endguest
                 @auth
-                 <li><a href="{{route('profile')}}" class="text-white">My Profile</a></li>
+                 <li><a href="{{route('profile')}}" class="text-white">My Profile ({{auth()->user()->name}})</a></li>
                 <li><a href="{{route('logout')}}" class="text-white">Logout</a></li>
                 @endauth
             <li><a href="{{route('cart.show')}}" class="text-white">Cart</a></li>

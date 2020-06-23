@@ -12,7 +12,6 @@ use Str;
 
 class AuthController extends Controller {
 
-
     public function showLoginFrom() {
         return view( 'frontend.auth.login' );
     }
@@ -27,23 +26,25 @@ class AuthController extends Controller {
             return redirect()->back()->withErrors( $validator )->withInput();
         }
 
-         $credentials = request()->except( ['_token'] );
-             
-        if(auth()->attempt($credentials)){
-             
-            if(auth()->user()->email_verified_at == null){
-               $this->setError( 'Your account is not active' );
-                return redirect()->route('userLogin');
+        $credentials = request()->except( ['_token'] );
+
+        if ( auth()->attempt( $credentials ) ) {
+
+            if ( auth()->user()->email_verified_at == null ) {
+                $this->setError( 'Your account is not active' );
+                return redirect()->route( 'userLogin' );
             }
-           $this->setSuccess( 'User Login success Fully' );
-           return redirect('/');
-        }  
-         
-        $this->setError('Email or Password Does not match');
+            if ( auth()->user()->admin !== 0 ) {
+                $this->setError( 'Account Does not match' );
+                return redirect()->route( 'userLogin' );
+            }
+            $this->setSuccess( 'User Login success Fully' );
+            return redirect( '/' );
+        }
+
+        $this->setError( 'Email or Password Does not match' );
         return redirect()->back();
     }
-
-   
 
     public function showRegistrationFrom() {
         return view( 'frontend.auth.register' );
@@ -69,7 +70,7 @@ class AuthController extends Controller {
                 'password' => bcrypt( request()->input( 'password' ) ),
                 'email_verification_token' => uniqid( time() . request()->input( 'email' ) . Str::random( 16 ) ),
             ] );
-           
+
             $user->notify( new RegistrationEmailNotification( $user ) );
 
             $this->setSuccess( 'Account Registered' );
@@ -105,8 +106,8 @@ class AuthController extends Controller {
         return redirect()->route( 'userLogin' );
     }
 
-    public function logout(){
-         auth()->logout();
-         return redirect('/');
+    public function logout() {
+        auth()->logout();
+        return redirect( '/' );
     }
 }

@@ -53,8 +53,9 @@ Route::group( ['namespace' => 'Backend'], function () {
 
   Route::group( ['middleware' => 'admin'], function () {
 
-Route::get( '/dashboard', 'HomeController@index' )->name( 'backend' );
-Route::get( '/admin/logout', 'AuthController@logout' )->name( 'admin.logout' );
+   Route::get( '/dashboard', 'HomeController@index' )->name( 'backend' );
+   Route::get( '/admin/logout', 'AuthController@logout' )->name( 'admin.logout' );
+   Route::get('category/show','CategoryController@show')->name('category.show');
   });
 });
 

@@ -1,4 +1,5 @@
 @include('backend.partials._header_file')
+   @yield('before_head')
 @include('backend.partials._header')
 
 
@@ -13,5 +14,8 @@
   </div>
 
 
-    @include('backend.partials._footer')
+     @include('backend.partials._footer')
+
+      @yield('before_body')
+      
     @include('backend.partials._footer_file')

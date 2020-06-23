@@ -12,7 +12,7 @@ class ProfileController extends Controller
 
     public function profile(){
         $data = [];
-        $data['orders'] = Order::where('user_id',auth() ->user()->id)->get();
+        $data['orders'] = Order::where('user_id',auth()->user()->id)->get();
          return view('frontend.auth.profile',$data);
     }
 
